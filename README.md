@@ -1,4 +1,4 @@
-# Hermes 💬
+# Hermes
 
 Un serveur de chat TCP minimaliste en Go 🐹
 

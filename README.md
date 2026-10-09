@@ -1,58 +1,62 @@
-<h1 align="center"><samp>Hermes 💬</samp></h1>
+# Hermes 💬
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Go-1.27-00ADD8?logo=go&logoColor=white" alt="Go">
-  <img src="https://img.shields.io/badge/TCP-:8090-black" alt="TCP 8090">
-</p>
+Un serveur de chat TCP minimaliste en Go 🐹
 
-<p align="center"><samp>A minimalist TCP chat server in Go 🐹</samp></p>
+![Go](https://img.shields.io/badge/Go-1.27-00ADD8?logo=go&logoColor=white)
+![Licence](https://img.shields.io/badge/Licence-MIT-green)
 
-<br>
 
-<p><samp>Requirements</samp></p>
+> [!CAUTION]
+> Ce projet n'a pas vocation à être mis en production : il a été réalisé avant tout dans un but d'apprentissage.
 
-- [Go](https://go.dev/dl/) 1.27 or newer
-- `nc` (netcat) to connect, or any TCP client
 
-<br>
+## Prérequis
 
-<p><samp>Start</samp></p>
+- [Go](https://go.dev/dl/) 1.27 ou supérieur
+- `nc` (netcat) pour se connecter, ou n'importe quel client TCP
+
+
+## Utilisation
+
+Lancer le serveur :
 
 ```sh
 go run ./cmd/server
 ```
 
-<br>
-
-<p><samp>Connect</samp></p>
+Se connecter au chat :
 
 ```sh
 nc localhost 8090
 ```
 
-<br>
+- Choisir un pseudo
+- Écrire un message : tout le monde le reçoit
+- `/leave` pour quitter le chat sans fermer le serveur pour les autres
 
-<p><samp>Usage</samp></p>
 
-- Choose a username
-- Type a message
-- Everyone receives it
-- `/leave` to quit
-
-<br>
-
-<p><samp>Structure</samp></p>
+## Structure
 
 ```
 cmd/
 └── server/
-    └── main.go      starts the server, accepts connections
+    └── main.go      démarre le serveur, accepte les connexions
 internal/
 ├── design/
-│   └── design.go    ASCII banner shown on connection
+│   └── design.go    bannière ASCII affichée à la connexion
 ├── identity/
-│   ├── identity.go  asks for a username and creates the user
-│   └── user.go      user type and list of connected users
+│   ├── identity.go  demande un pseudo et crée l'utilisateur
+│   └── user.go      type utilisateur et liste des connectés
 └── handlers/
-    └── handle.go    reads messages and sends them to others
+    └── handle.go    lit les messages et les envoie aux autres
 ```
+
+
+## Licence
+
+Distribué sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+
+## Auteurs
+
+- [@romain-x](https://www.github.com/romain-x)
